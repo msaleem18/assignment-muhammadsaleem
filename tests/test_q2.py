@@ -26,16 +26,16 @@ def test_mod_three_fsm():
     fsm = create_mod_three_fsm()
 
     # Test binary string "1101" which should have a remainder of 1 when divided by 3
-    fsm.process_input("1101")
-    assert fsm.get_current_state() == "S1", "Expected remainder 1"
+    resp = fsm.process_input("1101")
+    assert resp == "1", "Expected remainder 1"
 
     # Test binary string "1010" which should have a remainder of 2 when divided by 3
-    fsm.process_input("1110")
-    assert fsm.get_current_state() == "S2", "Expected remainder 2"
+    resp = fsm.process_input("1110")
+    assert resp == "2", "Expected remainder 2"
 
     # Test binary string "111" which should have a remainder of 0 when divided by 3
-    fsm.process_input("1111")
-    assert fsm.get_current_state() == "S0", "Expected remainder 0"
+    resp = fsm.process_input("1111")
+    assert resp == "0", "Expected remainder 0"
 
 def test_incorrect_state_name():
     fsm = create_mod_three_fsm()

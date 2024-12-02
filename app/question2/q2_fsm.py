@@ -122,7 +122,7 @@ class FSM():
         """
         self.current_state = self.start_state
 
-    def process_input(self, input_string: str) -> None:
+    def process_input(self, input_string: str) -> str:
         """
         Process an input string through the FSM.
 
@@ -130,11 +130,13 @@ class FSM():
         input_string (str): The input string to process.
 
         Return:
-        None
+        str: remainder value
         """
         self.reset()
         for symbol in input_string:
             self.current_state = self.current_state.get_next_state(symbol)
+
+        return self.get_current_state()[-1]
 
     def get_current_state(self) -> str:
         """
